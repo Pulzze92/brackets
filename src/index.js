@@ -1,6 +1,6 @@
 module.exports = function check(str, bracketsConfig) {
-  let a = new Map(bracketsConfig);
   let array = [];
+  let a = new Map(bracketsConfig);
 		for (let i = 0; i < str.length; i++) {
 			if (str[i] === a.get(array[array.length - 1])) {
 				array.pop();
@@ -8,5 +8,9 @@ module.exports = function check(str, bracketsConfig) {
 				else { array.push(str[i]);
 				}
 		}
-		return (array.length === 0) ? true : false;
-}
+		if (array.length === 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
